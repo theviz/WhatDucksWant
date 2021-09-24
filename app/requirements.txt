@@ -1,0 +1,9 @@
+###### Requirements for the project #####
+Flask
+pymongo==2.8.1
+pytest
+flask-expects-json
+pytest
+deepdiff
+requests
+Flask-MongoAlchemy
