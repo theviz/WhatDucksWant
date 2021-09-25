@@ -1,9 +1,9 @@
 ###### Requirements for the project #####
 Flask
-pymongo==2.8.1
+pymongo
 pytest
 flask-expects-json
 pytest
 deepdiff
 requests
-Flask-MongoAlchemy
+mongoengine
