@@ -7,5 +7,5 @@ class Config:
         self.FOOD_TYPE_TABLE='food_type'
         self.DUCK_FOOD='duck_food'
         self.HTTP_CREATED = 201
-        self.HTTP_SUCCESS = 200
         self.SERVER_ERROR = 500
+        self.ROLLBAR_ACCESS_TOKEN = os.getenv('ROLLBAR_ACCESS_TOKEN')

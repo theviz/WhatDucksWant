@@ -7,3 +7,5 @@ pytest
 deepdiff
 requests
 mongoengine
+rollbar
+blinker
