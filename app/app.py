@@ -57,3 +57,7 @@ def get_food_item():
 @expects_json(schema.duck_food)
 def save_duck_feed():
     return handler.POST_Duck_Food(request.json)
+
+if __name__ == '__main__':
+    from os import environ
+    app.run(debug=False, host='0.0.0.0', port=environ.get("PORT", 5000))
