@@ -1,10 +1,14 @@
-from flask import Flask, request
+from flask import Flask, request, got_request_exception
+import rollbar.contrib.flask
 from handler import Handler
 from config import Config
 from schema import Schema
 from mongoengine import connect
 from flask_expects_json import expects_json
+import rollbar
 import json
+import os
+
 
 handler = Handler()
 config = Config()
@@ -12,6 +16,18 @@ schema = Schema()
 
 app = Flask(__name__)
 connect('parks', host= config.MONGO_URL[0])
+
+@app.before_first_request
+def init_rollbar():
+    print("INIT ROLLBAR" + config.ROLLBAR_ACCESS_TOKEN, flush = True)
+    rollbar.init(
+        config.ROLLBAR_ACCESS_TOKEN,
+        'production',
+        root=os.path.dirname(os.path.realpath(__file__)),
+        allow_logging_basic_config=False
+    )
+
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 @app.route('/')
 def hello_world():
