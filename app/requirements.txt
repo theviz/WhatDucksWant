@@ -1,6 +1,6 @@
 ###### Requirements for the project #####
 Flask
-pymongo
+pymongo[srv]
 pytest
 flask-expects-json
 pytest
