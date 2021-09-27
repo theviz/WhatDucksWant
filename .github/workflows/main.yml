@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "app/**"
+      - "frontend/**"
       - ".github/workflows/main.yml"
 jobs:
   build:
@@ -14,22 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy
+        uses: akhileshns/heroku-deploy@v3.4.6
         env:
-          HEROKU_APP_NAME: freshworks
-          DOCKERFILE_DIRECTORY: "./app"
-          HEROKU_EMAIL: "campaigntestv@gmail.com"
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          DOCKERFILE_NAME: "Dockerfile"
-          DOCKER_OPTIONS: "--no-cache"
-        run: |
-          cd ${DOCKERFILE_DIRECTORY}
-          echo ${HEROKU_API_KEY} | docker login \
-            --username=${HEROKU_EMAIL} \
-            registry.heroku.com \
-            --password-stdin
-          docker build \
-            --file ${DOCKERFILE_NAME} \
-            ${DOCKER_OPTIONS} \
-            --tag registry.heroku.com/${HEROKU_APP_NAME}/web .
-          heroku container:push web --app ${HEROKU_APP_NAME}
-          heroku container:release web --app ${HEROKU_APP_NAME}
+          heroku_app_name: freshworks
+          heroku_email: "campaigntestv@gmail.com"
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
