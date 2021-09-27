@@ -79,16 +79,16 @@
 }
 
 .form-row .name {
-  width: 125px;
+  width: 145px;
   color: #555;
   font-size: 15px;
   font-weight: 700;
 }
 
 .form-row .value {
-  width: -webkit-calc(100% - 125px);
-  width: -moz-calc(100% - 125px);
-  width: calc(100% - 125px);
+  width: -webkit-calc(100% - 145px);
+  width: -moz-calc(100% - 145px);
+  width: calc(100% - 145px);
 }
 
 @media (max-width: 767px) {
