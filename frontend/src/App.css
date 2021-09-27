@@ -1,0 +1,94 @@
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.br-0 {
+  border-radius: 0 !important;
+}
+
+.card-heading {
+  background: none !important;
+}
+
+.card-heading .title {
+  text-align: left;
+  color: #242E4D !important;
+}
+
+.form-row .name {
+  color: #242E4D !important;
+}
+
+.navbar {
+  height: 100%;
+  background-color: #242E4D !important;
+  opacity: 0.9;
+  box-shadow: -9px 9px 20px 0px #242e4d73;
+}
+
+.card-5 {
+  box-shadow: 0px 8px 20px 0px #242e4d73;
+}
+
+.card-body {
+  background-color: #f5f4f4;
+}
+
+input {
+  background: #fff !important;
+}
+
+.rs-select2 .select2-container .select2-selection--single .select2-selection__rendered {
+  background: #fff !important;
+}
+
+.logo {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.logo img {
+  margin-bottom: 5px;
+}
+
+.logo h4 {
+  color: #fff;
+  font-weight: bold;
+}
+
+.download {
+  font-size: 20px;
+  float: right;
+  cursor: pointer;
+}
+
+div[id^=react-select], .css-qc6sy-singleValue{
+  margin-left: 4px !important;
+}
+
+input[id^=react-select] {
+  line-height: 35px !important;
+}
+
+.react-datepicker-wrapper input{
+  line-height: 50px !important;
+  padding-left: 22px;
+}
+
+.css-1s2u09g-control {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.input--style-5 {
+  padding: 0 0 0 22px;
+}
+
+.form-row .name:after {
+  content:" *";
+  color: red;
+}
