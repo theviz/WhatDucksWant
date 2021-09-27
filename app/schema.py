@@ -1,11 +1,3 @@
-# ASSUMPTIONS:
-# ID, TITLE, CONTENT are considered as mandatory fields.
-# The patterns are derived from the model input.
-# Patterns:
-#   id => Start with a character and followed by characters or numbers
-#   type => characters, numbers, hyphens, underbars, and space.
-#   description => characters, special characters, and space.
-#   Views and timestamp should be greater than 0
 class Schema:
     def __init__(self):
         self.food_type = {
@@ -35,10 +27,15 @@ class Schema:
             },
             "required": ["itemname", "food_id"]
         }
-        self.duck_food = {
+        self.duck_feed = {
             "type": "object",
             "properties": {
-                "item_id": {
+                "food_type": {
+                    "type": "string",
+                    "minLength": 2,
+                    "pattern": "^[A-Za-z0-9-_]*$"
+                },
+                "item_name": {
                     "type": "string",
                     "minLength": 2,
                     "pattern": "^[A-Za-z0-9-_]*$"
@@ -56,16 +53,15 @@ class Schema:
                     "type": "number",
                     "minimum": 0,
                 },
-                "lat": {
+                "quantity": {
                     "type": "number",
-                    "minimum": -90,
-                    "maximum": 90
+                    "minimum": 0,
                 },
-                "lng": {
-                    "type": "number",
-                    "minimum": -180,
-                    "maximum": 180
+                "location": {
+                    "type": "string",
+                    "minLength": 2,
+                    "pattern": "^[A-Za-z0-9-_\s]*$"
                 },
             },
-            "required": ["item_id", "count", "lat", "lng"]
+            "required": ["item_id", "count", "location", "food_type", "item_name"]
         }
