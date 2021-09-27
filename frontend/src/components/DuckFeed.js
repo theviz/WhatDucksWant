@@ -78,6 +78,7 @@ export default class DuckFeed extends Component {
         repeat: this.state.repeat
       };
       await this.api.post("/duck-food", data);
+      this.resetForm();
     } catch (error) {
       console.log(error);
     } finally {
@@ -85,6 +86,19 @@ export default class DuckFeed extends Component {
         isSaving: false
       });
     }
+  };
+
+  resetForm = () => {
+    document.getElementById("feed-form").reset();
+    this.FoodTypeRef.current.clearValue();
+    this.FoodItemRef.current.clearValue();
+
+    this.setState({
+      FoodItem: null,
+      FoodType: null,
+      Date: new Date(),
+      repeat: false
+    });
   };
 
   export = async () => {
