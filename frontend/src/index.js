@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import "react-datepicker/dist/react-datepicker.css";
 
 ReactDOM.render(
   <BrowserRouter>

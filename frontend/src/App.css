@@ -54,12 +54,41 @@ input {
   margin-bottom: 5px;
 }
 
-.logo h5 {
+.logo h4 {
   color: #fff;
   font-weight: bold;
 }
 
-.fa-download {
+.download {
   font-size: 20px;
   float: right;
+  cursor: pointer;
+}
+
+div[id^=react-select], .css-qc6sy-singleValue{
+  margin-left: 4px !important;
+}
+
+input[id^=react-select] {
+  line-height: 35px !important;
+}
+
+.react-datepicker-wrapper input{
+  line-height: 50px !important;
+  padding-left: 22px;
+}
+
+.css-1s2u09g-control {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.input--style-5 {
+  padding: 0 0 0 22px;
+}
+
+.form-row .name:after {
+  content:" *";
+  color: red;
 }
