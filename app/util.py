@@ -74,7 +74,7 @@ class Util:
             at = data['at']
             date = None
             if at != None:
-                date =  dt.fromtimestamp(int(at))
+                date =  dt.fromtimestamp(int(at) / 1000)
             item_id = self.get_item_id_for_data(data)
             print(item_id)
             park = DuckPark(

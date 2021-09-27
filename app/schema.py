@@ -63,5 +63,5 @@ class Schema:
                     "pattern": "^[A-Za-z0-9-_\s]*$"
                 },
             },
-            "required": ["item_id", "count", "location", "food_type", "item_name"]
+            "required": ["at", "count", "location", "food_type", "item_name"]
         }
