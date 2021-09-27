@@ -15,11 +15,10 @@ config = Config()
 schema = Schema()
 
 app = Flask(__name__)
-connect('parks', host= config.MONGO_URL[0])
+connect('parks', host= config.MONGO_URL)
 
 @app.before_first_request
 def init_rollbar():
-    print("INIT ROLLBAR" + config.ROLLBAR_ACCESS_TOKEN, flush = True)
     rollbar.init(
         config.ROLLBAR_ACCESS_TOKEN,
         'production',
@@ -31,9 +30,7 @@ def init_rollbar():
 
 @app.route('/')
 def hello_world():
-    author = FoodType(name=request.args.get('name', ''))
-    author.save()
-    return 'Hello, Docker!' + config.MONGO_URL[0]
+    return 'Hello, Docker!' + config.MONGO_URL
 
 @app.route('/food-type', methods=["POST"])
 @expects_json(schema.food_type)
@@ -54,7 +51,7 @@ def get_food_item():
     return handler.GET_Food_Item()
 
 @app.route('/duck-food', methods=["POST"])
-@expects_json(schema.duck_food)
+@expects_json(schema.duck_feed)
 def save_duck_feed():
     return handler.POST_Duck_Food(request.json)
 

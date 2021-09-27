@@ -13,5 +13,5 @@ class DuckPark(Document):
     name = StringField()
     count = IntField(required = True, min_value = 0, default = 1)
     at = DateTimeField(required=True, default=datetime.datetime.now())
-    lat = IntField(required = True, min_value = -90, max_value = 90)
-    lng = IntField(required = True, min_value = -180, max_value = 180)
+    location = StringField()
+    food_amount = IntField(default=0)
