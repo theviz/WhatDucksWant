@@ -11,8 +11,15 @@ export default class DuckFeed extends Component {
     super(props);
 
     const axiosInstance = axios.create({
-      baseURL: "http://34.125.220.216:5000/"
+      baseURL: "https://cors-anywhere.herokuapp.com/http://34.125.181.24:5000/"
     });
+
+    axiosInstance.interceptors.request.use(
+      function(config) {
+          config.headers["origin"] = "http://34.125.181.24:5000/"
+          return config;
+      },
+    );
 
     this.api = axiosInstance;
     this.state = {
