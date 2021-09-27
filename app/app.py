@@ -18,8 +18,7 @@ schema = Schema()
 app = Flask(__name__)
 connect('parks', host= config.MONGO_URL)
 
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app)
 
 @app.before_first_request
 def init_rollbar():
@@ -38,29 +37,24 @@ def hello_world():
 
 @app.route('/food-type', methods=["POST"])
 @expects_json(schema.food_type)
-@cross_origin()
 def save_food_type():
     return handler.POST_Food_Type(request.json)
 
 @app.route('/food-type', methods=["GET"])
-@cross_origin()
 def get_food_type():
     return handler.GET_Food_Type()
 
 @app.route('/food-item', methods=["POST"])
 @expects_json(schema.food_item)
-@cross_origin()
 def save_food_item():
     return handler.POST_Food_Item(request.json)
 
 @app.route('/food-item', methods=["GET"])
-@cross_origin()
 def get_food_item():
     return handler.GET_Food_Item()
 
 @app.route('/duck-food', methods=["POST"])
 @expects_json(schema.duck_feed)
-@cross_origin()
 def save_duck_feed():
     return handler.POST_Duck_Food(request.json)
 
