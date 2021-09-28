@@ -33,7 +33,7 @@ def init_rollbar():
 
 @app.route('/')
 def hello_world():
-    return 'Hello, Docker!' + config.MONGO_URL
+    return 'Welcome to What Ducks Want'
 
 @app.route('/food-type', methods=["POST"])
 @expects_json(schema.food_type)
@@ -57,6 +57,11 @@ def get_food_item():
 @expects_json(schema.duck_feed)
 def save_duck_feed():
     return handler.POST_Duck_Food(request.json)
+
+@app.route('/duck-food', methods=["GET"])
+def export_duck_feed():
+    return handler.GET_Duck_Food()
+
 
 if __name__ == '__main__':
     from os import environ

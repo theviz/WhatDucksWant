@@ -103,3 +103,10 @@ Create an entry for a park with the given details
 ### GET /parks
 
 Returns all the parks (paginated 10 per page)
+
+
+### Time Spent
+
+**Backend** - 4 hours
+**Front end** - 3 hours
+**Deployment and Documentation** 1 hour

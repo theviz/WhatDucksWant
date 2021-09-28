@@ -11,3 +11,4 @@ rollbar
 blinker
 gunicorn
 flask_cors
+pandas

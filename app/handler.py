@@ -39,3 +39,9 @@ class Handler:
             return self.util.create_duck_food(data), self.config.HTTP_CREATED
         except Exception as e:
             return self.util.handle_exception(e), self.config.SERVER_ERROR
+
+    def GET_Duck_Food(self):
+        try:
+            return self.util.get_duck_food(), self.config.HTTP_SUCCESS
+        except Exception as e:
+            return self.util.handle_exception(e), self.config.SERVER_ERROR

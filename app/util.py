@@ -1,9 +1,12 @@
+import io
 import json
+from io import BytesIO
+import pandas as pd
 from datetime import datetime as dt
 from config import Config
 from models import *
-from collections import namedtuple
 from types import SimpleNamespace
+from flask import make_response
 
 class Util:
     def __init__(self):
@@ -23,7 +26,7 @@ class Util:
             return self.handle_result(result)
         except Exception as e:
             print(e)
-            raise ValueError('Error while creating food type')
+            raise RuntimeError('Error while creating food type')
 
     def get_food_type(self, foodtype):
         return FoodType.objects(name = foodtype).to_json()
@@ -41,7 +44,7 @@ class Util:
             return self.handle_result(result)
         except Exception as e:
             print(e)
-            raise ValueError('Error while creating food item')
+            raise RuntimeError('Error while creating food item')
 
     def get_food_item(self, itemname):
         return FoodItem.objects(item_name = itemname).to_json()
@@ -90,4 +93,20 @@ class Util:
 
         except Exception as e:
             print(e)
-            raise ValueError('Error while saving duck food')
+            raise RuntimeError('Error while saving duck food')
+
+    def get_duck_food(self):
+        try:
+            #TODO: Have to replace the ids with actual text
+            print('HERE')
+            df = pd.DataFrame(json.loads(DuckPark.objects().to_json()))
+            resp = make_response(df.to_csv())
+            print('HERE')
+
+            resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+            resp.headers["Content-Type"] = "text/csv"
+            return resp
+
+        except Exception as e:
+            print(e)
+            raise RuntimeError('Error while exporting data')
